@@ -1,0 +1,13 @@
+[project]
+name = "desafio-c2s"
+version = "0.1.0"
+description = "Desafio Técnico C2S - Vaga de Desenvolvedor Python"
+authors = [
+    { name = "Paulo R. Pereira Jr.", email = "paulorobertouri@gmail.com" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp[cli]>=1.9.1",
+]
