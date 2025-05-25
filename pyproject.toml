@@ -3,7 +3,7 @@ name = "desafio-c2s"
 version = "0.1.0"
 description = "Desafio Técnico C2S - Vaga de Desenvolvedor Python"
 authors = [
-    { name = "Paulo R. Pereira Jr.", email = "paulorobertouri@gmail.com" },
+    { name = "Paulo R. Pereira Jr.", url = "https://github.com/paulorobertouri" }
 ]
 license = { text = "MIT" }
 readme = "README.md"
