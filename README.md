@@ -62,6 +62,14 @@ O cliente irá solicitar uma consulta em linguagem natural, encaminhar para o se
 mcp dev server.py
 ```
 
+## Testes
+
+Para executar os testes, utilize o seguinte comando:
+
+```shell
+python -m pytest
+```
+
 ## Estrutura dos principais arquivos
 
 - `client.py`: Cliente de linha de comando que interage com o usuário e comunica-se com o servidor.
