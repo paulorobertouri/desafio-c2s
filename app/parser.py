@@ -5,7 +5,7 @@ from openai import OpenAI
 import os
 import json
 from dotenv import load_dotenv
-from models import CarRq
+from app.models import CarRq
 from typing import Any, Dict
 import logging
 

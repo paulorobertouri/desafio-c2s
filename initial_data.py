@@ -5,7 +5,7 @@ Script to populate the database with initial fake car data for testing.
 import os
 from faker import Faker
 import random
-from models import Base, Car, engine, SessionLocal
+from app.models import Base, Car, engine, SessionLocal
 import logging
 
 logging.basicConfig(level=logging.INFO)
