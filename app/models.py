@@ -3,7 +3,7 @@ Models and database setup for car search application.
 """
 
 from sqlalchemy import Column, Integer, String, Float, create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
 from pydantic import BaseModel

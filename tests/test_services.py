@@ -1,6 +1,6 @@
 from unittest.mock import MagicMock
-from ..app.services import service_search_cars
-from ..app.models import Car
+from app.services import service_search_cars
+from app.models import Car
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
