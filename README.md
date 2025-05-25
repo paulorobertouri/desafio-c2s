@@ -74,9 +74,11 @@ python -m pytest
 
 - `client.py`: Cliente de linha de comando que interage com o usuário e comunica-se com o servidor.
 - `server.py`: Servidor MCP que processa as consultas e retorna os resultados.
-- `models.py`: Modelos de dados e configuração do banco SQLite.
-- `parser.py`: Parser que utiliza a OpenAI para extrair filtros das consultas.
 - `initial_data.py`: Script para popular o banco de dados com dados fictícios.
+
+- `app/models.py`: Modelos de dados e configuração do banco SQLite.
+- `app/parser.py`: Parser que utiliza a OpenAI para extrair filtros das consultas.
+- `app/services.py`: Serviços que implementam a lógica de negócios, incluindo a busca de carros.
 
 ## Demo
 
