@@ -11,3 +11,9 @@ wheels/
 
 # UV environment
 uv.lock
+
+# Database files
+.db
+
+# Configuration files
+.env

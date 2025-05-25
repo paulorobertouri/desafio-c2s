@@ -9,5 +9,8 @@ license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "faker>=37.3.0",
     "mcp[cli]>=1.9.1",
+    "openai>=1.82.0",
+    "sqlalchemy>=2.0.41",
 ]

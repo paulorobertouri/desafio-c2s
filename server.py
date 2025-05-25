@@ -1,26 +1,42 @@
-# server.py
+"""
+Server module for car search application.
+Handles incoming requests and queries the database for matching cars.
+"""
 from mcp.server.fastmcp import FastMCP
+from models import SessionLocal, Car
+from sqlalchemy import and_
+from sqlalchemy.exc import SQLAlchemyError
+from parser import parse_car_request
+import logging
 
-# Create an MCP server
+logging.basicConfig(level=logging.INFO)
 mcp = FastMCP("Server")
 
 
-# Add a tool that sums two integers
-@mcp.tool(None, description="Sum two integers")
-def add(a: int, b: int) -> int:
-    return a + b
-
-
-# Add a resource that returns a greeting
-@mcp.resource("hello://{name}", description="Greeting resource")
-def get_greeting(name: str) -> str:
-    return f"Hello, {name}!"
-
-
-# Add a prompt that takes a string argument and returns a greeting
-@mcp.prompt("prompt", description="Greeting prompt")
-def greeting_prompt(name: str) -> str:
-    return f"Hello, {name} from the prompt!"
+@mcp.tool("search_cars")
+def search_cars(user_query: str):
+    """
+    Search cars in the database using provided filters.
+    Returns a formatted string with the results or an error message.
+    """
+    if not user_query or not isinstance(user_query, str):
+        return "Invalid query. Please provide a valid search string."
+    try:
+        with SessionLocal() as session:
+            car_rq = parse_car_request(user_query)
+            filters = Car.get_car_filters(car_rq)
+            query = session.query(Car).filter(and_(*filters))
+            query = query.order_by(Car.price.asc())
+            results = query.limit(10).all()
+            if not results:
+                return "No cars found."
+            return Car.format_cars(results)
+    except SQLAlchemyError as e:
+        logging.error(f"Database error: {e}")
+        return "A database error occurred. Please try again later."
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
+        return "An unexpected error occurred. Please try again later."
 
 
 if __name__ == "__main__":
